@@ -123,6 +123,9 @@ pub fn tx_env_with_recovered(transaction: &TransactionSignedEcRecovered) -> TxEn
         );
     }
 
+    tx_env.eof_initcodes = vec![];
+    tx_env.eof_initcodes_hashed = HashMap::new();
+
     tx_env
 }
 
@@ -197,6 +200,8 @@ fn fill_tx_env_with_system_contract_call(
         // blob fields can be None for this tx
         blob_hashes: Vec::new(),
         max_fee_per_blob_gas: None,
+        eof_initcodes: vec![],
+        eof_initcodes_hashed: HashMap::new(),
         #[cfg(feature = "optimism")]
         optimism: OptimismFields {
             source_hash: None,
