@@ -8,6 +8,7 @@ use crate::{
 use alloy_eips::{eip4788::BEACON_ROOTS_ADDRESS, eip7002::WITHDRAWAL_REQUEST_PREDEPLOY_ADDRESS};
 #[cfg(feature = "optimism")]
 use revm_primitives::OptimismFields;
+use std::collections::HashMap;
 
 /// Fill block environment from Block.
 pub fn fill_block_env(
